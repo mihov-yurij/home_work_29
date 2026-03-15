@@ -1,4 +1,4 @@
- import {ageClassificationTest } from './js/ageClassification.js'; 
+ import {ageClassification} from './js/ageClassification.js'; 
 
 describe("ageClassification", function() {
   it("should return null for negative numbers", function() {
