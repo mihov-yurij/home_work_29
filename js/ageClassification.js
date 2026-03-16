@@ -24,4 +24,4 @@ console.log(' 90.01 :', ageClassification(90.01)) // 90.01 : Рекорд
 console.log('   122 :', ageClassification(122)) // 122 : Рекорд
 console.log('122.01 :', ageClassification(122.01)) // 122.01 : null
 console.log('   150 :', ageClassification(150)) // 150 : null
- export { ageClassification };
+module.exports =  ageClassification;

@@ -1,32 +1,57 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title> Test</title>
+  <title>Jasmine Testing in Browser</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jasmine-core@3.8.0/lib/jasmine-core/jasmine.css">
+  <script src="https://cdn.jsdelivr.net/npm/jasmine-core@3.8.0/lib/jasmine-core/jasmine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jasmine-core@3.8.0/lib/jasmine-core/jasmine-html.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jasmine-core@3.8.0/lib/jasmine-core/boot.js"></script>
+  <link rel="stylesheet" href="">
 </head>
 <body>
-  <input type="number" id="ageInput" step="0.01" placeholder="Введіть вік">
-  <button id="checkBtn">Перевірити</button>
-
-  <p id="result"></p>
-
   <script type="module">
-    import { ageClassification } from './js/ageClassification.js';
+    // Функція, яку ми тестуватимемо
+    function ageClassification(num) {
+  return num < 0 ? null :
+    num <= 24 ? 'Дитинство' :
+      num <= 44 ? 'Молодість' :
+        num <= 65 ? 'Зрілість' :
+          num <= 75 ? 'Старість' :
+            num <= 90 ? 'Довголіття' :
+              num <= 122 ? 'Рекорд' : null
+}
 
-    const input = document.getElementById('ageInput');
-    const button = document.getElementById('checkBtn');
-    const result = document.getElementById('result');
 
-    button.addEventListener('click', () => {
-      const value = Number(input.value);
-      const classification = ageClassification(value);
 
-      result.textContent = classification === null
-        ? 'Невірне значення'
-        : `Категорія: ${classification}`;
+   
+
+    // Тестування функції ageClassification за допомогою Jasmine
+    describe('ageClassification', function() {
+      it('повертає правильну категорію для віку 10', function() {
+        expect(ageClassification(10)).toEqual('Дитинство');
+
+        it('повертає правильну категорію для віку 25', function() {
+          expect(ageClassification(25)).toEqual('Молодість');
+        });
+
+        it('повертає правильну категорію для віку 45', function() {
+          expect(ageClassification(45)).toEqual('Зрілість');
+        });
+
+        it('повертає правильну категорію для віку 65', function() {
+          expect(ageClassification(65)).toEqual('Старість');
+        });
+
+        it('повертає правильну категорію для віку 75', function() {
+          expect(ageClassification(75)).toEqual('Старість');
+        });
+      });
     });
   </script>
-  <script type="module"> import { describe, test } from './js/ageClassificationTest.js';</script>
+  <script type="m"></script>
+
+
+
 
 </body>
 </html>
