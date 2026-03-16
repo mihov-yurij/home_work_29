@@ -1,4 +1,4 @@
-const ageClassification = require('../ageClassification');
+const ageClassification = require('./ageClassification');
 
 describe('ageClassification()', () => {
 
