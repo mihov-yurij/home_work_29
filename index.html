@@ -30,6 +30,7 @@
       it('повертає правильну категорію для віку 10', function() {
         expect(ageClassification(10)).toEqual('Дитинство');
 
+ });
         it('повертає правильну категорію для віку 25', function() {
           expect(ageClassification(25)).toEqual('Молодість');
         });
@@ -46,7 +47,7 @@
           expect(ageClassification(75)).toEqual('Старість');
         });
       });
-    });
+
   </script>
   <script type="module">
     function weekFn(cond) {
@@ -88,7 +89,7 @@ console.log(weekFn(9))   // null
 console.log(weekFn(1.5)) // null
 console.log(weekFn('2')) // null
 
-const weekFn = require('./weekFn.js');
+
   </script>
 
 describe('weekFn()', () => {
